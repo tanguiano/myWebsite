@@ -1,10 +1,10 @@
+<button mat-button (click)="typewriter()">CLICK</button>
 <div fxLayout="column" fxLayoutGap="100px">
   <div class="intro-section" fxLayout="row" fxLayoutAlign="space-around center">
     <div fxLayout="column" fxLayoutAlign="space-around center" fxLayoutGap="30px">
       <div fxLayout="row" class="welcome-heading">Welcome!</div>
       <div fxLayout="row" class="welcome-subheading">
-        My name is Tristan Anguiano and I am a Software Engineer.
-        Check me out.
+        {{ display }}<span class="cursor"></span>
       </div>
       <div fxLayout="row" fxLayoutAlign="center center" [ngx-scroll-to]="bio" class="keep-going-link" [@fade]="state"
         (@fade.done)="onDone($event)">
