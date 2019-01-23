@@ -26,13 +26,13 @@ export class MainPageComponent implements OnInit {
   i = 0;
   text = 'My name is Tristan Anguiano and I am a Software Engineer. Check me out!';
   display = '';
-  speed = 100;
+  speed = 50;
 
   constructor() { }
 
   ngOnInit() {
     this.typewriter(this);
-   }
+  }
 
   onDone($event) {
     if (this.counter < this.times) {
@@ -45,9 +45,11 @@ export class MainPageComponent implements OnInit {
     const totalLength = that.text.length;
     const currentLength = that.display.length;
     if (currentLength < totalLength) {
-      console.log(this.i);
       setTimeout(that.typewriter, that.speed, that);
       that.display += that.text[currentLength];
+    }
+    if (currentLength === totalLength) {
+      document.getElementById('cursor').style.display = 'none';
     }
   }
 
