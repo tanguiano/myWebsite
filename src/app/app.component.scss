@@ -1,0 +1,12 @@
+app-main-page {
+    height: 100%;
+}
+
+button {
+    z-index: 1;
+    position: fixed !important;
+    background-color: red;
+    color: white;
+    right: 10px;
+    bottom: 10px;
+}
