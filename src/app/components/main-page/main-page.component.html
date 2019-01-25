@@ -1,84 +1,82 @@
-<div fxLayout="column" fxLayoutGap="100px">
-  <div class="intro-section" fxLayout="row" fxLayoutAlign="space-around center">
-    <div fxLayout="column" fxLayoutAlign="space-around center" fxLayoutGap="30px">
-      <div fxLayout="row" class="welcome-heading">Welcome!</div>
-      <div fxLayout="row" class="welcome-subheading">
-        {{ display }}<span id="cursor" class="cursor"></span>
+<main>
+  <header class="header">
+    <div class="sub-header" fxLayout="column" fxLayoutAlign="center center">
+      <div class="welcome" fxLayout="row" fxLayoutAlign="space-around center">Welcome!</div>
+      <div fxLayout="row" fxLayoutAlign="space-around center">
+        {{ display }}<span id="cursor"></span>
       </div>
-      <div fxLayout="row" fxLayoutAlign="center center" [ngx-scroll-to]="bio" class="keep-going-link" [@fade]="state"
-        (@fade.done)="onDone($event)">
+      <div class="keep-going" fxLayout="row" fxLayoutAlign="center center" [ngx-scroll-to]="bio" [@fade]="state"
+        (@fade.done)="onDone($event)" style="cursor: pointer;">
         Keep Going!!
       </div>
-      <div fxLayout="row" fxLayoutAlign="center center" [ngx-scroll-to]="bio" class="keep-going-link">
+      <div fxLayout="row" fxLayoutAlign="center center" [ngx-scroll-to]="bio" style="cursor: pointer;">
         <mat-icon>arrow_downward</mat-icon>
       </div>
     </div>
+  </header>
+  <section #bio class="bio">
+    <p>
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sumenda potius quam expetenda. Nihil opus est exemplis
+      hoc facere longius.
+    </p>
+  </section>
+  <div class="flex-container wrapper">
+    <section class="sidebar">
+      Sidebar
+      <p>
+        The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested. Sections
+        1.10.32
+        and 1.10.33 from "de Finibus Bonorum et Malorum" by Cicero are also reproduced in their exact original form,
+        accompanied by English versions from the 1914 translation by H. Rackham.
+      </p>
+    </section>
+    <section class="content">Content
+      <p>
+        Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin
+        literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney
+        College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage,
+        and
+        going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum
+        comes
+        from sections 1.10.32 and 1.10.33 of "de Finibus Bonorum et Malorum" (The Extremes of Good and Evil) by Cicero,
+        written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The
+        first
+        line of Lorem Ipsum, "Lorem ipsum dolor sit amet..", comes from a line in section 1.10.32.
+
+        The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested. Sections
+        1.10.32
+        and 1.10.33 from "de Finibus Bonorum et Malorum" by Cicero are also reproduced in their exact original form,
+        accompanied by English versions from the 1914 translation by H. Rackham.
+        The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested. Sections
+        1.10.32
+        and 1.10.33 from "de Finibus Bonorum et Malorum" by Cicero are also reproduced in their exact original form,
+        accompanied by English versions from the 1914 translation by H. Rackham.
+        Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin
+        literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney
+        College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage,
+        and
+        going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum
+        comes
+        from sections 1.10.32 and 1.10.33 of "de Finibus Bonorum et Malorum" (The Extremes of Good and Evil) by Cicero,
+        written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The
+        first
+        line of Lorem Ipsum, "Lorem ipsum dolor sit amet..", comes from a line in section 1.10.32.
+
+        The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested. Sections
+        1.10.32
+        and 1.10.33 from "de Finibus Bonorum et Malorum" by Cicero are also reproduced in their exact original form,
+        accompanied by English versions from the 1914 translation by H. Rackham.
+        The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested. Sections
+        1.10.32
+        and 1.10.33 from "de Finibus Bonorum et Malorum" by Cicero are also reproduced in their exact original form,
+        accompanied by English versions from the 1914 translation by H. Rackham.
+      </p>
+    </section>
   </div>
-  <div #bio class="bio-section" fxLayout="row" fxLayoutAlign="center center">
-    <div fxLayout="column" fxLayoutAlign="space-around">
-      <div fxLayout="row" fxLayoutAlign="center space-around">
-        <h1 class="bio-heading">Biography</h1>
-      </div>
-      <div fxLayout="row" fxLayoutAlign="center space-around">
-        <p class="bio-content">
-          Hi, my name is Tristan Anguiano and I am a Software Engineer located in Omaha, NE. I currently am a Senior
-          at the University of Nebraska at Omaha pursuing a Bachelor's Degree in Management Information Systems. In
-          addition to school, I am also a Software Engineer intern for the Union Pacific Railroad.
-        </p>
-      </div>
-    </div>
-  </div>
-  <div #experience class="experience-section" fxLayout="row" fxLayoutAlign="center center">
-    <div fxLayout="column" fxLayoutAlign="space-around" style="height: 100%; width: 100%;">
-      <div fxLayout="row" fxLayoutAlign="center space-around">
-        <h1 class="experience-heading">Experience</h1>
-      </div>
-      <div class="experience-content" fxLayout="row" fxLayoutAlign="center space-around">
-      </div>
-    </div>
-  </div>
-  <div #contact class="contact-section" fxLayout="row" fxLayoutAlign="center center">
-    <div fxLayout="column" fxLayoutAlign="space-around" style="height: 100%; width: 100%;">
-      <div fxLayout="row" fxLayoutAlign="center space-around">
-        <h1 class="contact-heading">Contact Me</h1>
-      </div>
-      <div class="contact-content" fxLayout="row" fxLayoutAlign="center space-around">
-        <mat-card class="contact-card mat-elevation-z10">
-          <!-- <form fxLayout="column">
-            <mat-form-field appearance="fill">
-              <mat-label>Name</mat-label>
-              <input matInput autocomplete="off">
-              <mat-icon matSuffix>face</mat-icon>
-            </mat-form-field>
-            <mat-form-field appearance="fill">
-              <mat-label>Phone</mat-label>
-              <input matInput autocomplete="off">
-              <mat-icon matSuffix>phone</mat-icon>
-            </mat-form-field>
-            <mat-form-field appearance="fill">
-              <mat-label>Email</mat-label>
-              <input matInput autocomplete="off">
-              <mat-icon matSuffix>email</mat-icon>
-            </mat-form-field>
-            <mat-form-field appearance="fill">
-              <mat-label>Message</mat-label>
-              <textarea maxRows="5" matInput autocomplete="off"></textarea>
-              <mat-icon matSuffix>message</mat-icon>
-            </mat-form-field>
-          </form> -->
-          <div fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="10px">
-            <a href="https://github.com/tanguiano" target="_blank">
-              <img style="height: 85px; width: 100px; cursor: pointer;" src="../../../assets/gitHubLogos/Octocat.png">
-            </a>
-            <a href="https://www.linkedin.com/in/tristan-anguiano/" target="_blank">
-              <img style="height: 85px; width: 100px; cursor: pointer;" src="../../../assets/linkedInLogos/LinkedIn [in]/Screen/2-Color/In-2C-128px-TM.png">
-            </a>
-            <a href="https://medium.com/@anguiano.dev" target="_blank">
-              <img style="height: 85px; width: 100px; cursor: pointer;" src="../../../assets/mediumLogos/monogram/Monogram.png">
-            </a>
-          </div>
-        </mat-card>
-      </div>
-    </div>
-  </div>
-</div>
+  <footer class="footer">Footer
+    <p>
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sumenda potius quam expetenda. Nihil opus est exemplis
+      hoc facere longius.
+    </p>
+  </footer>
+</main>

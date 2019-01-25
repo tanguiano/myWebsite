@@ -3,9 +3,6 @@ import {
   trigger,
   useAnimation,
   transition,
-  state,
-  style,
-  animate
 } from '@angular/animations';
 import { bounce } from 'ng-animate';
 
@@ -19,11 +16,9 @@ export const fade = trigger('fade', [transition('* <=> *', useAnimation(bounce))
 })
 
 export class MainPageComponent implements OnInit {
-
   times = 100;
   counter = 0;
   state: any = 'active';
-  i = 0;
   text = 'My name is Tristan Anguiano and I am a Software Engineer. Check me out!';
   display = '';
   speed = 50;
@@ -31,7 +26,7 @@ export class MainPageComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    this.typewriter(this);
+    this.typeMainSubheading(this);
   }
 
   onDone($event) {
@@ -41,11 +36,11 @@ export class MainPageComponent implements OnInit {
     }
   }
 
-  typewriter(that) {
+  typeMainSubheading(that) {
     const totalLength = that.text.length;
     const currentLength = that.display.length;
     if (currentLength < totalLength) {
-      setTimeout(that.typewriter, that.speed, that);
+      setTimeout(that.typeMainSubheading, that.speed, that);
       that.display += that.text[currentLength];
     }
     if (currentLength === totalLength) {

@@ -1,12 +1,9 @@
-app-main-page {
-    height: 100%;
-}
-
 button {
     z-index: 1;
     position: fixed !important;
-    background-color: red;
+    background-color: white !important;
     color: white;
     right: 10px;
     bottom: 10px;
+    filter: invert(1);
 }
