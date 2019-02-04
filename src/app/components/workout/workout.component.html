@@ -1,3 +1,19 @@
-<p>
-  workout works!
-</p>
+<main>
+    <ng-container *ngIf="!workouts">
+        <mat-card class="workout-card">
+            <mat-progress-spinner class="center" mode="indeterminate"></mat-progress-spinner>
+        </mat-card>
+    </ng-container>
+    <ng-container *ngIf="workouts">
+        <mat-card class="workout-card" *ngFor="let workout of workouts">
+            <h1>
+                {{ workout.name }}
+            </h1>
+            <h2>
+                {{ workout.bodyParts }}
+            </h2>
+            Sets: {{ workout.sets }}
+            Reps: {{ workout.reps }}
+        </mat-card>
+    </ng-container>
+</main>
