@@ -1,8 +1,15 @@
-<div #top style="padding: 10px;">
-    <button [@backToTopButtonAnimation] *ngIf="showBackToTopButton" [ngx-scroll-to]="top" mat-fab>
-        <mat-icon>
-            arrow_upward
-        </mat-icon>
-    </button>
-    <app-main-page></app-main-page>
-</div>
+<mat-sidenav-container style="height: 100%; width: 100%;" autosize>
+    <mat-sidenav #sidenav mode="side" [(opened)]="opened" disableClose="true">
+        <ul class="nav-menu">
+            <li><button routerLink="/" (click)="sidenav.toggle()" mat-button>Home</button></li>
+            <li><button routerLink="/workout" (click)="sidenav.toggle()" mat-button>Workout</button></li>
+        </ul>
+    </mat-sidenav>
+    <mat-sidenav-content>
+        <button class="menu-button" (click)="sidenav.toggle()" mat-icon-button>
+            <mat-icon aria-label="Button to open side-menu">menu</mat-icon>
+        </button>
+        <router-outlet>
+        </router-outlet>
+    </mat-sidenav-content>
+</mat-sidenav-container>

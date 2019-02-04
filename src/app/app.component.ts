@@ -23,6 +23,7 @@ import { trigger, transition, style, animate } from '@angular/animations';
 export class AppComponent {
   title = 'myWebsite';
   showBackToTopButton: boolean = false;
+  opened: boolean;
 
   @HostListener('window:scroll', ['$event.target']) onscroll(event: Document) {
     this.onScroll(event.documentElement.scrollTop);
