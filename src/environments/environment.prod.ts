@@ -1,3 +1,7 @@
 export const environment = {
-  production: true
+  production: true,
+  firebase: {
+    apiKey: config.MY_KEY,
+    projectId: config.PROJECT_ID,
+  }
 };

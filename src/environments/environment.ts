@@ -5,8 +5,8 @@
 export const environment = {
   production: false,
   firebase: {
-    apiKey: 'AIzaSyDBIz77kiTJTjDQjjZ9Am5LTysBZupqEYE',
-    projectId: 'workouts-668f2',
+    apiKey: config.MY_KEY,
+    projectId: config.PROJECT_ID,
   }
 };
 
