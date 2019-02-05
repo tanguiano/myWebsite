@@ -5,15 +5,23 @@
         </mat-card>
     </ng-container>
     <ng-container *ngIf="workouts">
-        <mat-card class="workout-card" *ngFor="let workout of workouts">
-            <h1>
-                {{ workout.name }}
-            </h1>
-            <h2>
-                {{ workout.bodyParts }}
-            </h2>
-            Sets: {{ workout.sets }}
-            Reps: {{ workout.reps }}
+        <mat-card class="workout-card" *ngFor="let workout of workouts | async">
+            <mat-card-header>
+                <mat-card-title>{{ workout.name }}</mat-card-title>
+                <mat-card-subtitle>{{ workout.bodyParts }}</mat-card-subtitle>
+            </mat-card-header>
+            <mat-card-content>
+                Sets: {{ workout.sets }}
+                Reps: {{ workout.reps }}
+            </mat-card-content>
+            <mat-card-actions>
+                <button (click)="openEditWorkoutSheet()" mat-button>
+                    <mat-icon>edit</mat-icon>
+                </button>
+                <button mat-button>
+                    <mat-icon>delete</mat-icon>
+                </button>
+            </mat-card-actions>
         </mat-card>
     </ng-container>
 </main>
