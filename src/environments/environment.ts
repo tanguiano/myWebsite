@@ -1,9 +1,9 @@
+import * as Config from '../../config';
 
-import 'config';
 export const environment = {
   production: false,
   firebase: {
-    apiKey: config.MY_KEY,
-    projectId: config.PROJECT_ID,
+    apiKey: Config.config.MY_KEY,
+    projectId: Config.config.PROJECT_ID,
   }
 };
