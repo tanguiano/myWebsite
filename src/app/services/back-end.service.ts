@@ -10,7 +10,7 @@ export class BackEndService implements InMemoryDbService {
   createDb() {
     const date = new Date().toDateString();
     const workouts: Workout[] = [
-      { id: 1, complete: false, dateAdded: date, name: 'Bench Press', sets: 4, reps: 12, bodyParts: 'Chest & Triceps' }
+      { id: '', complete: false, dateAdded: date, name: 'Bench Press', sets: 4, reps: 12, bodyParts: 'Chest & Triceps' }
     ];
     return { workouts };
   }

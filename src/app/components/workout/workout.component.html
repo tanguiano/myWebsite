@@ -1,11 +1,12 @@
 <main>
-    <ng-container *ngIf="!workouts">
-        <mat-card class="workout-card">
-            <mat-progress-spinner class="center" mode="indeterminate"></mat-progress-spinner>
-        </mat-card>
+    <button id="add-button" (click)="openAddSheet()" mat-fab>
+        <mat-icon>add</mat-icon>
+    </button>
+    <ng-container *ngIf="workouts$.length < 1">
+        Sorry, you don't have any workouts!
     </ng-container>
-    <ng-container *ngIf="workouts">
-        <mat-card class="workout-card" *ngFor="let workout of workouts | async">
+    <ng-container>
+        <mat-card class="workout-card" *ngFor="let workout of workouts$ | async">
             <mat-card-header>
                 <mat-card-title>{{ workout.name }}</mat-card-title>
                 <mat-card-subtitle>{{ workout.bodyParts }}</mat-card-subtitle>
@@ -15,10 +16,10 @@
                 Reps: {{ workout.reps }}
             </mat-card-content>
             <mat-card-actions>
-                <button (click)="openEditWorkoutSheet()" mat-button>
+                <button (click)="openEditSheet(workout)" mat-button>
                     <mat-icon>edit</mat-icon>
                 </button>
-                <button mat-button>
+                <button (click)="deleteWorkout(workout)" mat-button>
                     <mat-icon>delete</mat-icon>
                 </button>
             </mat-card-actions>

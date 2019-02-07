@@ -1,5 +1,5 @@
 export interface Workout {
-    id: number;
+    id?: string;
     complete: boolean;
     dateAdded: string;
     name: string;
