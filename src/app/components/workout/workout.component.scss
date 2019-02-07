@@ -1,24 +1,13 @@
-main {
-    padding: 20px;
-}
-
 mat-card {
-    margin:  auto;
-    width: 75%;
+    margin: 10px;
 }
 
 #add-button {
-    margin-right: 15px;
-    position: fixed;
-    z-index: 999;
-    right: 0;
     background-color: rgb(95, 207, 95);
 }
 
 .workout-card {
-    width: 300px;
     height: 300px;
-    margin-bottom: 10px;
 }
 
 .center {
@@ -27,6 +16,11 @@ mat-card {
 }
 
 .complete {
-    background-color: green;
-    height: 100px;
+    background-color: rgb(95, 207, 95);
+    max-height: 100px;
+}
+
+.incomplete {
+    background-color: rgb(207, 95, 95);
+    max-height: 100%;
 }

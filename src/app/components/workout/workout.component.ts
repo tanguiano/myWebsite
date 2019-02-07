@@ -7,7 +7,7 @@ import { WorkoutsService } from 'src/app/services/workouts.service';
 import { Workout } from '../../models/workout';
 import { AngularFirestore, AngularFirestoreDocument, AngularFirestoreCollection } from '@angular/fire/firestore';
 import { MatBottomSheet, MatBottomSheetRef, MatSnackBar, MatSnackBarConfig } from '@angular/material';
-import { map } from 'rxjs/operators';
+import { map, timeout } from 'rxjs/operators';
 
 @Component({
   selector: 'app-workout',
@@ -22,6 +22,8 @@ export class WorkoutComponent implements OnInit {
   SNACKBAR_CONFIG: MatSnackBarConfig = {
     duration: 700,
   };
+  currentDay: string;
+  greeting: string;
 
   constructor(
     private http: HttpClient,
@@ -43,9 +45,27 @@ export class WorkoutComponent implements OnInit {
             return { id, ...data };
           });
         }));
+    this.currentDay = new Date().toLocaleString('en-us', { weekday: 'long' });
+    this.greetUser();
   }
 
   ngOnInit() { }
+
+  greetUser() {
+    const currentHour = new Date().getHours();
+    console.log(currentHour);
+    if (currentHour <= 11) {
+      this.greeting = `${this.currentDay} - Good morning!`;
+    } else if (currentHour >= 12 && currentHour <= 13) {
+      this.greeting = `${this.currentDay} - Have a good Lunch!`;
+    } else if (currentHour >= 14 && currentHour <= 16) {
+      this.greeting = `${this.currentDay} - Good afternoon!`;
+    } else if (currentHour >= 17 && currentHour <= 20) {
+      this.greeting = `${this.currentDay} - Good evening!`;
+    } else {
+      this.greeting = 'Goodnight!';
+    }
+  }
 
   update(workout: Workout) {
     if (workout) {
@@ -67,7 +87,7 @@ export class WorkoutComponent implements OnInit {
     }
   }
 
-  complete(workout) {
+  complete(workout: Workout) {
     if (workout && !workout.complete) {
       workout.complete = true;
       this.workoutsCollectionRef.doc(workout.id).update(workout);

@@ -7,24 +7,19 @@
       </div>
       <mat-form-field appearance="fill">
         <mat-label>Name</mat-label>
-        <input [(ngModel)]="workout.name" [ngModelOptions]="{ standalone: true }" matInput placeholder="Placeholder">
-        <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+        <input autocomplete="off" [(ngModel)]="workout.name" [ngModelOptions]="{ standalone: true }" matInput>
       </mat-form-field>
       <mat-form-field appearance="fill">
         <mat-label>Body Parts</mat-label>
-        <input [(ngModel)]="workout.bodyParts" [ngModelOptions]="{ standalone: true }" matInput
-          placeholder="Placeholder">
-        <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+        <input autocomplete="off" [(ngModel)]="workout.bodyParts" [ngModelOptions]="{ standalone: true }" matInput>
       </mat-form-field>
       <mat-form-field appearance="fill">
         <mat-label>Sets</mat-label>
-        <input [(ngModel)]="workout.sets" [ngModelOptions]="{ standalone: true }" matInput placeholder="Placeholder">
-        <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+        <input autocomplete="off" [(ngModel)]="workout.sets" [ngModelOptions]="{ standalone: true }" matInput>
       </mat-form-field>
       <mat-form-field appearance="fill">
         <mat-label>Reps</mat-label>
-        <input [(ngModel)]="workout.reps" [ngModelOptions]="{ standalone: true }" matInput placeholder="Placeholder">
-        <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+        <input autocomplete="off" [(ngModel)]="workout.reps" [ngModelOptions]="{ standalone: true }" matInput>
       </mat-form-field>
     </div>
   </form>

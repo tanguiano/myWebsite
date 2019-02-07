@@ -20,8 +20,8 @@ export class AddWorkoutComponent implements OnInit {
       dateAdded: '',
       name: '',
       bodyParts: '',
-      sets: 0,
-      reps: 0
+      sets: null,
+      reps: null
     }
     this.bottomSheetRef.backdropClick().subscribe((result) => {
       if (result) {
@@ -31,6 +31,11 @@ export class AddWorkoutComponent implements OnInit {
   }
 
   add() {
+    for (let property in this.workout) {
+      if (this.workout[property] === null) {
+        this.bottomSheetRef.dismiss(undefined);
+      }
+    }
     this.bottomSheetRef.dismiss(this.workout);
   }
 
