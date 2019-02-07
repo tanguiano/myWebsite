@@ -8,7 +8,7 @@
         </div>
     </mat-card>
     <mat-card [ngClass]="{ 'complete': workout.complete, 'incomplete': !workout.complete }" class="workout-card"
-        *ngFor="let workout of workouts$ | async" (dblclick)="complete(workout)">
+        *ngFor="let workout of workouts$ | async" (dblclick)="complete(workout)" (swipeleft)="complete(workout)">
         <div style="height: 100%;" fxLayout="column" fxLayoutAlign="space-between">
             <div fxLayout="row">
                 <mat-card-title>{{ workout.name }}</mat-card-title>
