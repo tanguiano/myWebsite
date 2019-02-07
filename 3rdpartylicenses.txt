@@ -442,6 +442,10 @@ THE SOFTWARE.
 
 @angular/material/bottom-sheet
 
+@angular/material/button
+
+@angular/material/snack-bar
+
 @angular/router
 MIT
 
@@ -501,10 +505,6 @@ SOFTWARE.
 
 
 @angular/material/card
-
-@angular/material/progress-spinner
-
-@angular/material/button
 
 @angular/fire/firestore
 MIT
