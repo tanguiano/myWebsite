@@ -2,11 +2,9 @@
     <button id="add-button" (click)="openAddSheet()" mat-fab>
         <mat-icon>add</mat-icon>
     </button>
-    <ng-container *ngIf="workouts$.length < 1">
-        Sorry, you don't have any workouts!
-    </ng-container>
     <ng-container>
-        <mat-card class="workout-card" *ngFor="let workout of workouts$ | async">
+        <mat-card [ngClass]="{ 'complete': workout.complete }" class="workout-card" *ngFor="let workout of workouts$ | async"
+            (dblclick)="complete(workout)">
             <mat-card-header>
                 <mat-card-title>{{ workout.name }}</mat-card-title>
                 <mat-card-subtitle>{{ workout.bodyParts }}</mat-card-subtitle>
@@ -14,12 +12,13 @@
             <mat-card-content>
                 Sets: {{ workout.sets }}
                 Reps: {{ workout.reps }}
+                <mat-icon *ngIf="workout.complete">check</mat-icon>
             </mat-card-content>
             <mat-card-actions>
-                <button (click)="openEditSheet(workout)" mat-button>
+                <button (click)="openEditSheet(workout)" mat-icon-button>
                     <mat-icon>edit</mat-icon>
                 </button>
-                <button (click)="deleteWorkout(workout)" mat-button>
+                <button (click)="delete(workout)" mat-icon-button>
                     <mat-icon>delete</mat-icon>
                 </button>
             </mat-card-actions>

@@ -47,23 +47,33 @@ export class WorkoutComponent implements OnInit {
 
   ngOnInit() { }
 
-  updateWorkout(workout: Workout) {
+  update(workout: Workout) {
     if (workout) {
       this.workoutsCollectionRef.doc(workout.id).update(workout);
     }
   }
 
-  addWorkout(workout: Workout) {
+  add(workout: Workout) {
     if (workout) {
       this.workoutsCollectionRef.add(workout);
       this.snackBar.open('Workout added!', '', this.SNACKBAR_CONFIG);
     }
   }
 
-  deleteWorkout(workout: Workout) {
+  delete(workout: Workout) {
     if (workout) {
       this.workoutsCollectionRef.doc(workout.id).delete();
       this.snackBar.open('Workout deleted!', '', this.SNACKBAR_CONFIG);
+    }
+  }
+
+  complete(workout) {
+    if (workout && !workout.complete) {
+      workout.complete = true;
+      this.workoutsCollectionRef.doc(workout.id).update(workout);
+    } else if (workout && workout.complete) {
+      workout.complete = false;
+      this.workoutsCollectionRef.doc(workout.id).update(workout);
     }
   }
 
@@ -71,7 +81,7 @@ export class WorkoutComponent implements OnInit {
     const addWorkoutSheetRef = this.addWorkoutSheet.open(AddWorkoutComponent);
     addWorkoutSheetRef.afterDismissed().subscribe((result: Workout) => {
       if (result) {
-        this.addWorkout(result);
+        this.add(result);
       }
     });
   }
@@ -84,7 +94,7 @@ export class WorkoutComponent implements OnInit {
     });
     editWorkoutSheetRef.afterDismissed().subscribe((result: Workout) => {
       if (result) {
-        this.updateWorkout(result);
+        this.update(result);
       }
     });
   }
