@@ -4,6 +4,9 @@ import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 import { AngularFireModule } from '@angular/fire';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
+import { AngularFireAuthModule } from '@angular/fire/auth';
+import { FlexLayoutModule } from '@angular/flex-layout';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -14,12 +17,14 @@ import { AddWorkoutComponent } from './components/add-workout/add-workout.compon
 import { BackEndService }  from './services/back-end.service';
 import { environment } from '../environments/environment';
 
-import { FlexLayoutModule } from '@angular/flex-layout';
 import { ScrollToModule } from '@nicky-lenaers/ngx-scroll-to';
 import { MatButtonModule, MatCheckboxModule, MatIconModule, MatCardModule, MatFormFieldModule, MatInputModule, MatSidenavModule, MatToolbarModule, MatProgressSpinnerModule, MatBottomSheetModule, MatBottomSheetRef, MatSnackBarModule } from '@angular/material';
 import { MdcListModule, MdcDrawerModule } from '@angular-mdc/web';
-import { FormsModule } from '@angular/forms';
 import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
+import { SignInComponent } from './components/sign-in/sign-in.component';
+import { SignUpComponent } from './components/sign-up/sign-up.component';
+import { ForgotPasswordComponent } from './components/forgot-password/forgot-password.component';
+import { VerifyEmailComponent } from './components/verify-email/verify-email.component';
 
 
 @NgModule({
@@ -28,7 +33,11 @@ import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
     MainPageComponent,
     WorkoutComponent,
     EditWorkoutSheetComponent,
-    AddWorkoutComponent
+    AddWorkoutComponent,
+    SignInComponent,
+    SignUpComponent,
+    ForgotPasswordComponent,
+    VerifyEmailComponent,
   ],
   imports: [
     BrowserModule,
@@ -53,13 +62,15 @@ import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
     MatBottomSheetModule,
     MatFormFieldModule,
     MatSnackBarModule,
+    ReactiveFormsModule,
+    AngularFireAuthModule,
     HttpClientInMemoryWebApiModule.forRoot(
       BackEndService, { dataEncapsulation: false }
     ),
-    AppRoutingModule
+    AppRoutingModule,
   ],
-  entryComponents: [EditWorkoutSheetComponent, AddWorkoutComponent],
+  entryComponents: [EditWorkoutSheetComponent, AddWorkoutComponent,],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent,]
 })
 export class AppModule { }

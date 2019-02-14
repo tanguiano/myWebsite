@@ -1,8 +1,12 @@
 <mat-sidenav-container style="height: 100%; width: 100%;" autosize>
     <mat-sidenav #sidenav mode="side" [(opened)]="opened" disableClose="true">
         <ul class="nav-menu">
-            <li><button routerLink="/" (click)="sidenav.toggle()" mat-button>Home</button></li>
-            <li><button routerLink="/workout" (click)="sidenav.toggle()" mat-button>Workout</button></li>
+            <li *ngIf="!authService.isLoggedIn"><button routerLink="/" (click)="sidenav.toggle()" mat-button>Sign
+                    In</button></li>
+            <li *ngIf="authService.isLoggedIn"><button routerLink="/workout" (click)="sidenav.toggle()"
+                    mat-button>Workouts</button></li>
+            <li *ngIf="authService.isLoggedIn"><button (click)="authService.signOut(); sidenav.toggle()" color="warn"
+                    mat-raised-button>Sign Out</button></li>
         </ul>
     </mat-sidenav>
     <mat-sidenav-content>

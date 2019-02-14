@@ -1,5 +1,6 @@
 import { Component, HostListener } from '@angular/core';
 import { trigger, transition, style, animate } from '@angular/animations';
+import { AuthenticationService } from './services/authentication.service';
 
 @Component({
   selector: 'app-root',
@@ -29,7 +30,9 @@ export class AppComponent {
     this.onScroll(event.documentElement.scrollTop);
   };
 
-  constructor() { }
+  constructor(
+    public authService: AuthenticationService
+  ) { }
 
   onScroll(scrollTop) {
     if (scrollTop) {
