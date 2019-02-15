@@ -1,3 +1,43 @@
-.logo {
-    padding-bottom: 15px;
+mat-form-field {
+    padding-left: 15px;
+    padding-right: 15px;
 }
+
+mat-card {
+    margin: 10px;
+}
+
+.login {
+    margin-bottom: 20px;
+}
+
+.sign-up {
+    margin-bottom: 10px;
+}
+
+.forgot-pw {
+    margin-bottom: 10px;
+}
+
+.logo {
+    padding-top: 90px;
+    padding-bottom: 80px;
+    animation: MoveUpDown 1s linear infinite;
+    position: relative;
+    // -webkit-animation:spin 4s linear infinite;
+    // -moz-animation:spin 4s linear infinite;
+    // animation:spin 4s linear infinite;
+}
+
+@keyframes MoveUpDown {
+    0%, 100% {
+      bottom: 0;
+    }
+    50% {
+      bottom: 50px;
+    }
+}
+
+@-moz-keyframes spin { 100% { -moz-transform: rotate(360deg); } }
+@-webkit-keyframes spin { 100% { -webkit-transform: rotate(360deg); } }
+@keyframes spin { 100% { -webkit-transform: rotate(360deg); transform:rotate(360deg); } }
