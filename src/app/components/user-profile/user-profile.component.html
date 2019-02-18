@@ -1,3 +1,17 @@
 <p>
   user-profile is currently under construction!
 </p>
+<span *ngIf="authService.userData as user">
+  <div fxLayout="row">
+    {{ user.displayName }}
+  </div>
+  <div fxLayout="row">
+    {{ user.uid }}
+  </div>
+  <div fxLayout="row">
+    <img src="{{ user.photoURL }}">
+  </div>
+  <div fxLayout="row">
+      {{ user.email }}
+    </div>
+</span>
