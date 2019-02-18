@@ -5,6 +5,8 @@
                     In</button></li>
             <li *ngIf="authService.isLoggedIn"><button routerLink="/workout" (click)="sidenav.toggle()"
                     mat-button>Workouts</button></li>
+            <li *ngIf="authService.isLoggedIn"><button routerLink="/user-profile" (click)="sidenav.toggle()"
+                    mat-button>Profile</button></li>
             <li *ngIf="authService.isLoggedIn"><button (click)="authService.signOut(); sidenav.toggle()" color="warn"
                     mat-raised-button>Sign Out</button></li>
         </ul>

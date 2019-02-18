@@ -16,6 +16,7 @@ import { User } from '../models/user';
 export class AuthenticationService {
   userData: any;
   user: Observable<User>;
+  currentUser;
 
   constructor(
     public afs: AngularFirestore,
@@ -47,10 +48,14 @@ export class AuthenticationService {
       });
   }
 
-  signUp(email, password) {
+  signUp(email, password, displayName) {
     return this.afAuth.auth.createUserWithEmailAndPassword(email, password)
       .then((result) => {
         this.sendVerificationEmail();
+        result.user.updateProfile({
+          displayName: displayName,
+          photoURL: ''
+        });
         this.setUserData(result.user);
       }).catch((error) => {
         window.alert(error.message);
@@ -76,6 +81,11 @@ export class AuthenticationService {
   get isLoggedIn(): boolean {
     const user = JSON.parse(localStorage.getItem('user'));
     return (user !== null && user.emailVerified !== false) ? true : false;
+  }
+
+  get getUser(): User {
+    const user = JSON.parse(localStorage.getItem('user'));
+    return user;
   }
 
   googleAuth() {

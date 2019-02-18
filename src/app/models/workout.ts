@@ -6,4 +6,5 @@ export interface Workout {
     bodyParts?: string;
     sets?: number;
     reps?: number;
+    uid?: string;
 }

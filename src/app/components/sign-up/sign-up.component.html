@@ -1,37 +1,23 @@
 <div>
   <div>
     <div>
-      <h3>Sign Up</h3>
 
-      <div class="formGroup">
-        <input type="email" class="formControl" placeholder="Email Address" #userEmail required>
-      </div>
-
-      <div class="formGroup">
-        <input type="password" class="formControl" placeholder="Password" #userPwd required>
-      </div>
-
-      <div class="formGroup">
-        <input type="button" class="btn btnPrimary" value="Sign Up"
-          (click)="authService.signUp(userEmail.value, userPwd.value)">
-      </div>
-
-      <div class="formGroup">
-        <span class="or"><span class="orInner">Or</span></span>
-      </div>
-
-      <!-- Continue with Google -->
-      <div class="formGroup">
-        <button type="button" class="btn googleBtn" (click)="authService.googleAuth()">
-          <i class="fab fa-google-plus-g"></i>
-          Continue with Google
-        </button>
-      </div>
-
-    </div>
-
-    <div class="redirectToLogin">
-      <span>Already have an account? <span class="redirect" routerLink="/sign-in">Log In</span></span>
+      <form fxLayout="column">
+        <h3> Sign Up</h3>
+        <mat-form-field appearance="outline">
+          <input placeholder="Email" matInput type="email" class="formControl" #userEmail required>
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+          <input placeholder="Password" matInput type="password" class="formControl" #userPwd required>
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+          <input placeholder="Display Name" matInput type="text" class="formControl" #displayName required>
+        </mat-form-field>
+        <div fxLayout="row" class="formGroup">
+          <button mat-raised-button (click)="authService.signUp(userEmail.value, userPwd.value, displayName.value)">Sign
+            Up</button>
+        </div>
+      </form>
     </div>
   </div>
 
