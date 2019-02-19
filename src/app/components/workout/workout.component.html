@@ -8,7 +8,7 @@
         </div>
     </mat-card>
     <mat-card [ngClass]="{ 'complete': workout.complete, 'incomplete': !workout.complete }" class="workout-card"
-        *ngFor="let workout of workouts$ | async" (dblclick)="complete(workout)" (swipeleft)="complete(workout)">
+        *ngFor="let workout of workouts$ | async" (dblclick)="complete(workout)">
         <div style="height: 100%;" fxLayout="column" fxLayoutAlign="space-between">
             <div fxLayout="row">
                 <mat-card-title>{{ workout.name }}</mat-card-title>
@@ -24,11 +24,15 @@
                 <mat-icon *ngIf="workout.complete">check</mat-icon>
             </div>
             <div fxLayout="row">
-                <button (click)="openEditSheet(workout)" mat-icon-button>
+                <button (click)="openEditSheet(workout)" mat-raised-button>
                     <mat-icon>edit</mat-icon>
                 </button>
-                <button (click)="delete(workout)" mat-icon-button>
+                <button (click)="delete(workout)" mat-raised-button>
                     <mat-icon>delete</mat-icon>
+                </button>
+                <button (click)="complete(workout)" mat-raised-button>
+                    <mat-icon *ngIf="!workout.complete">done_outline</mat-icon>
+                    <mat-icon *ngIf="workout.complete">clear</mat-icon>
                 </button>
             </div>
         </div>
