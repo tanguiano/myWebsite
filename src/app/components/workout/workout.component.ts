@@ -9,11 +9,30 @@ import { AngularFirestore, AngularFirestoreDocument, AngularFirestoreCollection 
 import { MatBottomSheet, MatBottomSheetRef, MatSnackBar, MatSnackBarConfig } from '@angular/material';
 import { map, timeout } from 'rxjs/operators';
 import { AuthenticationService } from 'src/app/services/authentication.service';
+import { trigger, state, style, transition, animate } from '@angular/animations';
 
 @Component({
   selector: 'app-workout',
   templateUrl: './workout.component.html',
-  styleUrls: ['./workout.component.scss']
+  styleUrls: ['./workout.component.scss'],
+  animations: [
+    trigger('photoState', [
+      state('show', style({
+        transform: 'translateY(150px)',
+        width: '100%',
+        height: '100%',
+        left: 0,
+        right: 0,
+        top: 0,
+        position: 'fixed',
+      })),
+      state('hide', style({
+        // opacity: 0
+      })),
+      transition('show => hide', animate('200ms ease-out')),
+      transition('hide => show', animate('200ms ease-in')),
+    ])
+  ]
 })
 export class WorkoutComponent implements OnInit {
   workoutsCollectionRef: AngularFirestoreCollection<Workout>;
@@ -25,6 +44,7 @@ export class WorkoutComponent implements OnInit {
   };
   currentDay: string;
   greeting: string;
+  addButtonShow: boolean = false;
 
   constructor(
     private http: HttpClient,
@@ -88,7 +108,7 @@ export class WorkoutComponent implements OnInit {
     console.log(workout);
     if (workout) {
       const uid = this.authService.getUser.uid;
-      this.workoutsCollectionRef.add({ uid, ...workout});
+      this.workoutsCollectionRef.add({ uid, ...workout });
       this.snackBar.open('Workout added!', '', this.SNACKBAR_CONFIG);
     }
   }
@@ -131,5 +151,13 @@ export class WorkoutComponent implements OnInit {
         this.update(result);
       }
     });
+  }
+
+  get addButtonState() {
+    return this.addButtonShow ? 'show' : 'hide';
+  }
+
+  toggleAddButtonState() {
+    this.addButtonShow = !this.addButtonShow;
   }
 }

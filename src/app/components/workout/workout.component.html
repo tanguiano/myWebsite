@@ -1,37 +1,36 @@
 <main>
-    <mat-card>
+    <!-- <mat-card>
         <div fxLayout="row" fxLayoutAlign="space-between center">
             <span>{{ greeting }}</span>
-            <button id="add-button" (click)="openAddSheet()" mat-icon-button>
-                <mat-icon>add</mat-icon>
-            </button>
         </div>
-    </mat-card>
+    </mat-card> -->
+    <button (click)="openAddSheet()" id="add-button" mat-fab>
+        <mat-icon>add</mat-icon>
+    </button>
     <mat-card [ngClass]="{ 'complete': workout.complete, 'incomplete': !workout.complete }" class="workout-card"
         *ngFor="let workout of workouts$ | async" (dblclick)="complete(workout)">
-        <div style="height: 100%;" fxLayout="column" fxLayoutAlign="space-between">
-            <div fxLayout="row">
-                <mat-card-title>{{ workout.name }}</mat-card-title>
+        <div fxLayout="row" fxLayoutAlign="space-between">
+            <div fxLayout="column">
+                <div fxLayout="row">
+                    <h1>{{ workout.name }}</h1>
+                </div>
+                <div fxLayout="row" fxLayoutAlign="space-between">
+                    <span>Sets: {{ workout.sets }}</span>
+                    <span>Reps: {{ workout.reps }}</span>
+                    <div></div>
+                    <div></div>
+                </div>
             </div>
-            <div fxLayout="row">
-                <mat-card-subtitle>{{ workout.bodyParts }}</mat-card-subtitle>
-            </div>
-            <div fxLayout="row" fxLayoutAlign="space-between">
-                <span>Sets: {{ workout.sets }}</span>
-                <span>Reps: {{ workout.reps }}</span>
-                <div></div>
-                <div></div>
-                <mat-icon *ngIf="workout.complete">check</mat-icon>
-            </div>
-            <div fxLayout="row">
-                <button (click)="openEditSheet(workout)" mat-raised-button>
+            <div fxLayout="column" fxLayoutAlign="space-between" class="button-row">
+                <button class="edit-button" (click)="openEditSheet(workout)" mat-mini-fab>
                     <mat-icon>edit</mat-icon>
                 </button>
-                <button (click)="delete(workout)" mat-raised-button>
+                <button class="delete-button" (click)="delete(workout)" mat-mini-fab>
                     <mat-icon>delete</mat-icon>
                 </button>
-                <button (click)="complete(workout)" mat-raised-button>
-                    <mat-icon *ngIf="!workout.complete">done_outline</mat-icon>
+                <button [ngClass]="{ 'complete': !workout.complete, 'incomplete': workout.complete }"
+                    class="complete-button" (click)="complete(workout)" mat-mini-fab>
+                    <mat-icon *ngIf="!workout.complete">done</mat-icon>
                     <mat-icon *ngIf="workout.complete">clear</mat-icon>
                 </button>
             </div>

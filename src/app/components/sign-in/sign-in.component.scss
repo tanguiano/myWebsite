@@ -1,10 +1,22 @@
-mat-form-field {
-    padding-left: 15px;
-    padding-right: 15px;
-}
-
 mat-card {
     margin: 10px;
+}
+
+form {
+    @media screen and (max-width: 1000px) {
+        padding-left: 150px;
+        padding-right: 150px;
+    }
+    @media screen and (max-width: 640px) {
+        padding-left: 100px;
+        padding-right: 100px;
+    }
+    @media screen and (max-width: 415px) {
+        padding-left: 25px;
+        padding-right: 25px;
+    }
+    padding-left: 200px;
+    padding-right: 200px;
 }
 
 .login {
@@ -24,9 +36,6 @@ mat-card {
     padding-bottom: 80px;
     animation: MoveUpDown 1s linear infinite;
     position: relative;
-    // -webkit-animation:spin 4s linear infinite;
-    // -moz-animation:spin 4s linear infinite;
-    // animation:spin 4s linear infinite;
 }
 
 @keyframes MoveUpDown {
