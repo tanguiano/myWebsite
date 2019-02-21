@@ -10,17 +10,6 @@
     <mat-card [ngClass]="{ 'complete': workout.complete, 'incomplete': !workout.complete }" class="workout-card"
         *ngFor="let workout of workouts$ | async" (dblclick)="complete(workout)">
         <div fxLayout="row" fxLayoutAlign="space-between">
-            <div fxLayout="column">
-                <div fxLayout="row">
-                    <h1>{{ workout.name }}</h1>
-                </div>
-                <div fxLayout="row" fxLayoutAlign="space-between">
-                    <span>Sets: {{ workout.sets }}</span>
-                    <span>Reps: {{ workout.reps }}</span>
-                    <div></div>
-                    <div></div>
-                </div>
-            </div>
             <div fxLayout="column" fxLayoutAlign="space-between" class="button-row">
                 <button class="edit-button" (click)="openEditSheet(workout)" mat-mini-fab>
                     <mat-icon>edit</mat-icon>
@@ -33,6 +22,17 @@
                     <mat-icon *ngIf="!workout.complete">done</mat-icon>
                     <mat-icon *ngIf="workout.complete">clear</mat-icon>
                 </button>
+            </div>
+            <div fxLayout="column">
+                <div fxLayout="row">
+                    <h1>{{ workout.name }}</h1>
+                </div>
+                <div fxLayout="row" fxLayoutAlign="space-between">
+                    <span>Sets: {{ workout.sets }}</span>
+                    <span>Reps: {{ workout.reps }}</span>
+                    <div></div>
+                    <div></div>
+                </div>
             </div>
         </div>
     </mat-card>
