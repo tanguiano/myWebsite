@@ -7,6 +7,7 @@ import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { DragDropModule } from '@angular/cdk/drag-drop';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -18,7 +19,7 @@ import { BackEndService }  from './services/back-end.service';
 import { environment } from '../environments/environment';
 
 import { ScrollToModule } from '@nicky-lenaers/ngx-scroll-to';
-import { MatButtonModule, MatCheckboxModule, MatIconModule, MatCardModule, MatFormFieldModule, MatInputModule, MatSidenavModule, MatToolbarModule, MatProgressSpinnerModule, MatBottomSheetModule, MatBottomSheetRef, MatSnackBarModule } from '@angular/material';
+import { MatButtonModule, MatCheckboxModule, MatIconModule, MatCardModule, MatFormFieldModule, MatInputModule, MatSidenavModule, MatToolbarModule, MatProgressSpinnerModule, MatBottomSheetModule, MatBottomSheetRef, MatSnackBarModule, MatListModule, MatExpansionModule } from '@angular/material';
 import { MdcListModule, MdcDrawerModule } from '@angular-mdc/web';
 import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { SignInComponent } from './components/sign-in/sign-in.component';
@@ -66,6 +67,9 @@ import { UserProfileComponent } from './components/user-profile/user-profile.com
     MatSnackBarModule,
     ReactiveFormsModule,
     AngularFireAuthModule,
+    DragDropModule,
+    MatListModule,
+    MatExpansionModule,
     HttpClientInMemoryWebApiModule.forRoot(
       BackEndService, { dataEncapsulation: false }
     ),

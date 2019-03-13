@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { EditWorkoutSheetComponent } from '../edit-workout-sheet/edit-workout-sheet.component';
@@ -6,10 +6,11 @@ import { AddWorkoutComponent } from '../add-workout/add-workout.component';
 import { WorkoutsService } from 'src/app/services/workouts.service';
 import { Workout } from '../../models/workout';
 import { AngularFirestore, AngularFirestoreDocument, AngularFirestoreCollection } from '@angular/fire/firestore';
-import { MatBottomSheet, MatBottomSheetRef, MatSnackBar, MatSnackBarConfig } from '@angular/material';
+import { MatBottomSheet, MatBottomSheetRef, MatSnackBar, MatSnackBarConfig, MatCard } from '@angular/material';
 import { map, timeout } from 'rxjs/operators';
 import { AuthenticationService } from 'src/app/services/authentication.service';
 import { trigger, state, style, transition, animate } from '@angular/animations';
+import { CdkDragDrop, moveItemInArray } from '@angular/cdk/drag-drop';
 
 @Component({
   selector: 'app-workout',
@@ -45,6 +46,9 @@ export class WorkoutComponent implements OnInit {
   currentDay: string;
   greeting: string;
   addButtonShow: boolean = false;
+  outgoingData = [{ name: 'Trsitan' }, { name: 'Jennifer' }, { name: 'Teddy' }, { name: 'Wally' }];
+
+  @ViewChild('workoutCard', { read: ElementRef, }) workoutCard: ElementRef;
 
   constructor(
     private http: HttpClient,
@@ -153,11 +157,13 @@ export class WorkoutComponent implements OnInit {
     });
   }
 
-  get addButtonState() {
-    return this.addButtonShow ? 'show' : 'hide';
-  }
-
-  toggleAddButtonState() {
-    this.addButtonShow = !this.addButtonShow;
+  changeWorkoutCardHeight() {
+    const currentHeight = this.workoutCard.nativeElement.clientHeight;
+    if (currentHeight === 72) {
+      this.workoutCard.nativeElement.style.height = `${172}px`;
+    } else {
+      this.workoutCard.nativeElement.style.height = `${72}px`
+    }
+    console.log(currentHeight);
   }
 }
