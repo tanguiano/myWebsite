@@ -15,11 +15,11 @@
       </mat-form-field>
       <mat-form-field appearance="fill">
         <mat-label>Sets</mat-label>
-        <input autocomplete="off" [(ngModel)]="workout.sets" [ngModelOptions]="{ standalone: true }" matInput>
+        <input type="number" autocomplete="off" [(ngModel)]="workout.sets" [ngModelOptions]="{ standalone: true }" matInput>
       </mat-form-field>
       <mat-form-field appearance="fill">
         <mat-label>Reps</mat-label>
-        <input autocomplete="off" [(ngModel)]="workout.reps" [ngModelOptions]="{ standalone: true }" matInput>
+        <input type="number" autocomplete="off" [(ngModel)]="workout.reps" [ngModelOptions]="{ standalone: true }" matInput>
       </mat-form-field>
     </div>
   </form>

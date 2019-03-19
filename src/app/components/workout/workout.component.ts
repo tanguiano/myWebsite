@@ -135,7 +135,9 @@ export class WorkoutComponent implements OnInit {
   }
 
   openAddSheet() {
-    const addWorkoutSheetRef = this.addWorkoutSheet.open(AddWorkoutComponent);
+    const addWorkoutSheetRef = this.addWorkoutSheet.open(AddWorkoutComponent, {
+      panelClass: 'full-width-bottom-sheet',
+    });
     addWorkoutSheetRef.afterDismissed().subscribe((result: Workout) => {
       if (result) {
         console.log(result);
